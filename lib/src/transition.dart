@@ -7,10 +7,20 @@ enum DialogTransitionType {
   RightToLeft,
   TopToBottom,
   BottomToTop,
+  Fade,
   NONE
 }
 
 class DialogTransition {
+  static Widget fade(Animation<double> animation, Widget child) {
+    return FadeTransition(
+      opacity: CurvedAnimation(
+          parent: Tween<double>(begin: 0, end: 1).animate(animation),
+          curve: Curves.ease),
+      child: child,
+    );
+  }
+
   static Widget transitionFromLeft(Animation<double> animation, Widget child) {
     return SlideTransition(
       position: Tween<Offset>(begin: Offset(-1.0, 0.0), end: Offset.zero)

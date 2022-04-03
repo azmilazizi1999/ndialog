@@ -41,6 +41,9 @@ class DialogUtils {
       case DialogTransitionType.Bubble:
         return DialogTransition.bubble(animation, child);
         break;
+      case DialogTransitionType.Fade:
+        return DialogTransition.fade(animation, child);
+        break;
       case DialogTransitionType.LeftToRight:
         return DialogTransition.transitionFromLeft(animation, child);
         break;
